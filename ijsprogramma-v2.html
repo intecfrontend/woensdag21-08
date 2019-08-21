@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form id="myForm" action="ijsprogramma.html" method="GET">
+    <form id="myForm">
 
         <div class="[ smaken ] [ is-error ]">
             <label for="smaken" class="smakenclasse" aria-hidden="true"></label>ijssmaken
@@ -23,12 +23,8 @@
             <br><label for="smaken" class="c-check-field__label">aardbeismaak</label>
             <input type="text" name="abaardbei" id="abaardb" min="0" max="3" step="1" class="c-input-field" value="0" />
 
-
-
-
             <br><label for="smaken" class="c-check-field__label">banaansmaak</label>
             <input type="text" name="abbanaan" id="abban" min="0" max="3" step="1" class="c-input-field" value="0" />
-
 
 
             <br><label for="smaken" class="c-check-field__label">chocosmaak</label>
@@ -42,37 +38,39 @@
 
 
 
-
-
-        <button type="submit" onclick="myOrder()" value="">Mijn ijsje-bestelling</button>
+        <button type="button" onclick="myOrder()" value="">Mijn ijsje-bestelling</button>
 
 
     </form>
 
     <script>
-        var abaardb = parseInt(document.querySelector("#abaardb").value);
-        var abvan = parseInt(document.querySelector("#abvan").value);
-        var abban = parseInt(document.querySelector("#abban").value);
-        var abchoc = parseInt(document.querySelector("#abchoc").value);
-
-        var tab = abaardb + abvan + abban + abchoc;
-        if (tab > 3 || tab < 1) {
-            alert(abaardb, "maximaal 3 bollen, minimaal 1 bol")
-        };
-
-        var vn = document.getElementById("vngeg").value;
-        console.log(vn);
-        console.log(tab);
-        console.log(abvan);
-
-
-
-
-
-
-
         function myOrder() {
-            document.getElementById("myForm").submit();
+            // document.getElementById("myForm").submit();
+
+            var abaardb = parseInt(document.querySelector("#abaardb").value);
+            var abvan = parseInt(document.querySelector("#abvan").value);
+            var abban = parseInt(document.querySelector("#abban").value);
+            var abchoc = parseInt(document.querySelector("#abchoc").value);
+            var vn = document.getElementById("vngeg").value;
+
+            var tab = abaardb + abvan + abban + abchoc;
+            if (tab > 3 || tab < 1) {
+                alert("maximaal 3 bollen, minimaal 1 bol")
+            } else {
+                alert(vn + "bestelde" +
+                    abvan + "vanilleijs" +
+                    abban + "banaanijs" +
+                    abchoc + "chocoijs" +
+                    abaardb + "aardbei-ijs")
+            }
+
+
+            console.log("Outputting Data");
+            console.log("===============");
+
+            console.log(vn);
+            console.log(tab);
+            console.log(abvan);
         }
     </script>
 
